@@ -19,7 +19,7 @@ function App() {
     : products.filter(p => p.category === filter)
 
   const contactWhatsApp = (productName) => {
-    const phone = "237656058437"
+    const phone = "237690798604"
     const message = encodeURIComponent(`Bonjour Sherif Shopping, je suis intéressé par l'article : ${productName}`)
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank')
   }
