@@ -143,3 +143,109 @@
 .theme-toggle:hover {
   background: var(--border);
 }
+
+/* PREMIUM CAMPAIGN STYLES */
+.campaign-banner {
+  padding: 0 5% 4rem;
+}
+
+.campaign-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 32px;
+  padding: 3rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+[data-theme='dark'] .campaign-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+}
+
+.campaign-content {
+  flex: 1;
+  max-width: 50%;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.campaign-content h2 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.campaign-content p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.campaign-btn {
+  padding: 1rem 2rem;
+  background: var(--text-main);
+  color: var(--bg-app);
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.campaign-btn:hover {
+  transform: scale(1.05);
+}
+
+.campaign-image {
+  flex: 1;
+  height: 400px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.campaign-image img {
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: -20px 20px 40px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .campaign-card {
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+  }
+  .campaign-content {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  .campaign-content h2 {
+    font-size: 2rem;
+  }
+  .campaign-image {
+    width: 100%;
+    height: 300px;
+  }
+  .campaign-image img {
+    width: 100%;
+  }
+}

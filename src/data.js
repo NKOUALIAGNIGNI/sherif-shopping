@@ -49,5 +49,30 @@ export const products = [
     category: "enfant",
     image: "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?auto=format&fit=crop&q=80&w=800",
     description: "Style adorable et matières saines."
+  },
+  /* PRESSING */
+  {
+    id: 7,
+    name: "Lavage Standard",
+    price: 15,
+    category: "pressing",
+    image: "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&q=80&w=800",
+    description: "Nettoyage complet et soin de vos vêtements quotidiens."
+  },
+  {
+    id: 8,
+    name: "Nettoyage à Sec Premium",
+    price: 35,
+    category: "pressing",
+    image: "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&q=80&w=800",
+    description: "Traitement spécialisé pour vos tissus les plus délicats."
+  },
+  {
+    id: 9,
+    name: "Repassage Perfection",
+    price: 10,
+    category: "pressing",
+    image: "https://images.unsplash.com/photo-1510339847124-f1778ea2ca37?auto=format&fit=crop&q=80&w=800",
+    description: "Une finition impeccable pour une allure toujours soignée."
   }
 ];

@@ -36,25 +36,43 @@ function App() {
         </div>
       </nav>
 
-      <section className="hero-compact" style={{textAlign: 'center', padding: '4rem 5%'}}>
+      <section className="hero-compact" style={{textAlign: 'center', padding: '4rem 5% 2rem'}}>
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{fontSize: '3rem', margin: '0'}}
+          style={{fontSize: '3.5rem', margin: '0', fontWeight: '800', letterSpacing: '-0.02em'}}
         >
           Luxe & Style pour tous.
         </motion.h1>
-        <p style={{color: 'var(--text-muted)'}}>Inspiré par Amazon, conçu pour l'élégance.</p>
+        <p style={{color: 'var(--text-muted)', fontSize: '1.2rem', marginTop: '1rem'}}>Inspiré par l'élégance, conçu pour votre quotidien.</p>
+      </section>
+
+      <section className="campaign-banner">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          className="campaign-card"
+        >
+          <div className="campaign-content">
+            <span className="badge">NOUVEAU SERVICE</span>
+            <h2>Votre linge, notre priorité.</h2>
+            <p>Découvrez notre service de Pressing Premium. Soin délicat, finition irréprochable.</p>
+            <button onClick={() => setFilter('pressing')} className="campaign-btn">Explorer le Pressing</button>
+          </div>
+          <div className="campaign-image">
+            <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&q=80&w=800" alt="Pressing Campaign" />
+          </div>
+        </motion.div>
       </section>
 
       <div className="category-nav">
-        {['all', 'homme', 'femme', 'enfant'].map((cat) => (
+        {['all', 'homme', 'femme', 'enfant', 'pressing'].map((cat) => (
           <button 
             key={cat}
             onClick={() => setFilter(cat)}
             className={`category-btn ${filter === cat ? 'active' : ''}`}
           >
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            {cat === 'pressing' ? 'Pressing ✨' : cat.charAt(0).toUpperCase() + cat.slice(1)}
           </button>
         ))}
       </div>
