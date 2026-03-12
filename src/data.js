@@ -1,4 +1,13 @@
 export const products = [
+  /* PROPRIÉTAIRE / ÉQUIPE */
+  {
+    id: 10,
+    name: "Sherif - Fondateur",
+    price: 0,
+    category: "L'Équipe",
+    image: "/owner.jpg",
+    description: "Derrière chaque style, une vision d'excellence."
+  },
   /* FEMMES */
   {
     id: 1,
