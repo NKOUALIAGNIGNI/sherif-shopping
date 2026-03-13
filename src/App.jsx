@@ -7,6 +7,7 @@ import PressingBanner from './components/PressingBanner'
 import FilterBar from './components/FilterBar'
 import ProductCard from './components/ProductCard'
 import CartDrawer from './components/CartDrawer'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -89,9 +90,7 @@ function App() {
         removeItem={removeItem}
       />
 
-      <footer style={{textAlign: 'center', padding: '3rem', borderTop: '1px solid var(--border)', color: 'var(--text-muted)'}}>
-        <p>&copy; 2026 Sherif Shopping - Boutique Officielle</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
