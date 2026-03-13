@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { MessageCircle, Star } from 'lucide-react'
+import { Plus, Star } from 'lucide-react'
 
-const ProductCard = ({ product, contactWhatsApp }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   return (
     <motion.div
       layout
@@ -24,11 +24,11 @@ const ProductCard = ({ product, contactWhatsApp }) => {
         <div className="product-footer">
           <span className="price">{product.price}€</span>
           <button 
-            onClick={() => contactWhatsApp(product.name)}
-            className="whatsapp-btn"
+            onClick={() => onAddToCart(product)}
+            className="add-to-cart-btn"
           >
-            <MessageCircle size={18} fill="white" />
-            Commander
+            <Plus size={18} />
+            Panier
           </button>
         </div>
       </div>

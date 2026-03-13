@@ -6,11 +6,14 @@ import Hero from './components/Hero'
 import PressingBanner from './components/PressingBanner'
 import FilterBar from './components/FilterBar'
 import ProductCard from './components/ProductCard'
+import CartDrawer from './components/CartDrawer'
 import './App.css'
 
 function App() {
   const [theme, setTheme] = useState('light')
   const [filter, setFilter] = useState('all')
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [cartItems, setCartItems] = useState([])
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -22,15 +25,41 @@ function App() {
     ? products 
     : products.filter(p => p.category === filter)
 
-  const contactWhatsApp = (productName) => {
-    const phone = "237690798604"
-    const message = encodeURIComponent(`Bonjour Sherif Shopping, je suis intéressé par l'article : ${productName}`)
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank')
+  const addToCart = (product) => {
+    setCartItems(prev => {
+      const existing = prev.find(item => item.id === product.id)
+      if (existing) {
+        return prev.map(item => 
+          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        )
+      }
+      return [...prev, { ...product, quantity: 1 }]
+    })
+    setIsCartOpen(true)
+  }
+
+  const updateQuantity = (id, delta) => {
+    setCartItems(prev => prev.map(item => {
+      if (item.id === id) {
+        const newQty = Math.max(1, item.quantity + delta)
+        return { ...item, quantity: newQty }
+      }
+      return item
+    }))
+  }
+
+  const removeItem = (id) => {
+    setCartItems(prev => prev.filter(item => item.id !== id))
   }
 
   return (
     <div className="app-main">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar 
+        theme={theme} 
+        toggleTheme={toggleTheme} 
+        cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
+        onOpenCart={() => setIsCartOpen(true)}
+      />
       
       <main>
         <Hero />
@@ -45,12 +74,20 @@ function App() {
               <ProductCard 
                 key={product.id} 
                 product={product} 
-                contactWhatsApp={contactWhatsApp} 
+                onAddToCart={addToCart} 
               />
             ))}
           </AnimatePresence>
         </section>
       </main>
+
+      <CartDrawer 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        cartItems={cartItems}
+        updateQuantity={updateQuantity}
+        removeItem={removeItem}
+      />
 
       <footer style={{textAlign: 'center', padding: '3rem', borderTop: '1px solid var(--border)', color: 'var(--text-muted)'}}>
         <p>&copy; 2026 Sherif Shopping - Boutique Officielle</p>
