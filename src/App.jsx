@@ -8,6 +8,7 @@ import FilterBar from './components/FilterBar'
 import ProductCard from './components/ProductCard'
 import CartDrawer from './components/CartDrawer'
 import Footer from './components/Footer'
+import PressingServices from './components/PressingServices'
 import './App.css'
 
 function App() {
@@ -68,6 +69,16 @@ function App() {
         <PressingBanner onExplore={() => setFilter('pressing')} />
 
         <FilterBar filter={filter} setFilter={setFilter} />
+
+        {filter === 'pressing' && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="pressing-section"
+          >
+            <PressingServices />
+          </motion.div>
+        )}
 
         <section className="products-grid">
           <AnimatePresence mode='popLayout'>
